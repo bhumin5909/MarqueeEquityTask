@@ -1,0 +1,10 @@
+<nav class="d-flex justify-content-end navbar align-items-center px-3 flex-column gap-3 flex-sm-row">
+  <div class="mx-auto d-flex gap-3">
+    <label class="form-label w-100">Search By Book Name:</label>
+    <input type="text" class="form-control" (change)="searchbook($event)">
+  </div>
+  <div class="">
+    <a [routerLink]="'/myBookShelf'" ><button class="btn btn-primary">My Bookshelf</button> </a>
+  </div>
+</nav>
+<app-book-show></app-book-show>

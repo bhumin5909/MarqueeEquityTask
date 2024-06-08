@@ -1,0 +1,28 @@
+<ng-container *ngIf="isLoading else booksContent;">
+  <div class="d-flex min-vh-100 w-100 justify-content-center align-items-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+<ng-template #booksContent>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+  <ng-container *ngIf="books.length>0">
+  <ng-container *ngFor="let book of books">
+    <div class="col p-3">
+      <div class="d-flex flex-column border border-1 rounded justify-content-between p-3" style="height: 250px;">
+        <h3>Title: {{book.title}}</h3>
+        <h4>Edition Count: {{book.edition_count}}</h4>
+        <h5>Author Name: {{book.author_name}}</h5>
+        <button type="button" class="btn btn-primary" (click)="addBook(book)" [disabled]="checkBookInShelf(book)" >Add to Bookshelf</button>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="books.length == 0">
+  <div class="d-flex w-100 min-vh-100 justify-content-center align-items-center">
+    <h3 class="text-center">{{errorMessage!=''?errorMessage:'Search book by writing book name in the input field.'}}</h3>
+  </div>
+</ng-container>
+</div>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="d-flex p-3">
+  <a [routerLink]="''"><svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+  </svg></a>
+  <h1 class="text-center w-100">
+    My Bookshelf
+  </h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+  <ng-container *ngFor="let book of books; let i = index;">
+    <div class="col p-3">
+      <div class="d-flex flex-column border border-1 rounded justify-content-between p-3" style="height: 250px;">
+        <h3>Title: {{book.title}}</h3>
+        <h4>Edition Count: {{book.edition_count}}</h4>
+        <h5>Author Name: {{book.author_name}}</h5>
+        <button type="button" class="btn btn-danger mx-auto" style="width: 150px;" (click)="removeBook(i)">Remove</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
